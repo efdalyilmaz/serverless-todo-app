@@ -8,5 +8,6 @@
   "private": true,
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "postinstall": "netlify-lambda install"
 }

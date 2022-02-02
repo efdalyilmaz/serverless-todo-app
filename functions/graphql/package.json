@@ -2,7 +2,7 @@
   "name": "graphql-api",
   "version": "1.0.0",
   "main": "index.js",
-  "author" : "efdalyilmaz <yilmazefdal@gmail.com>",
+  "author": "efdalyilmaz <yilmazefdal@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "apollo-server-lambda": "^3.6.2",
