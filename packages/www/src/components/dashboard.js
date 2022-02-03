@@ -10,7 +10,35 @@ import {
   Checkbox
 } from "theme-ui";
 import { Router, Link } from "@reach/router";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import { IdentityContext } from "../../identity-context";
+
+const ADD_TODO = gql`
+  mutation AddTodo($text: String!) {
+    addTodo(text: $text) {
+      id
+    }
+  }
+`;
+
+const UPDATE_TODO_DONE = gql`
+  mutation UpdateTodoDone($id: ID!) {
+    updateTodoDone(id: $id) {
+      text
+      done
+    }
+  }
+`;
+
+const GET_TODOS = gql`
+  query GetTodos {
+    todos {
+      id
+      text
+      done
+    }
+  }
+`;
 
 const todosReducer = (state, action) => {
   switch (action.type) {
@@ -25,6 +53,7 @@ const todosReducer = (state, action) => {
       return newState;
   }
 };
+
 
 export default () => {
   const { user, identity: netlifyIdentity } = useContext(IdentityContext);
